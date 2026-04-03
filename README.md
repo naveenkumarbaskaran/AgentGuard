@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/banner.svg" alt="AgentGuard" width="700">
+
 # 🛡️ AgentGuard
 
 **Safety Guardrails for AI Agents — Input Validation, Output Filtering, and Execution Boundaries**
