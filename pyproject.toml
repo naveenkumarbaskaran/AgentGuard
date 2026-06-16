@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "agentguard-py"
+name = "agentguard-core"
 version = "0.2.0"
 description = "Production-grade safety guardrails for LLM agents — injection detection, PII redaction, tool governance"
 readme = "README.md"
