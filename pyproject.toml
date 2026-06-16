@@ -4,30 +4,56 @@ build-backend = "hatchling.build"
 
 [project]
 name = "agentguard"
-version = "0.1.0"
+version = "0.2.0"
 description = "Production-grade safety guardrails for LLM agents — injection detection, PII redaction, tool governance"
 readme = "README.md"
-license = {text = "MIT"}
+license = { text = "Apache-2.0" }
 requires-python = ">=3.11"
-authors = [
-    {name = "Naveen Kumar Baskaran", email = "naveen.baskaran@sap.com"},
-]
-keywords = ["llm", "guardrails", "safety", "security", "prompt-injection", "pii", "ai-safety"]
+authors = [{ name = "Naveen Kumar Baskaran" }]
+keywords = ["llm", "guardrails", "safety", "security", "prompt-injection", "pii", "ai-safety", "agents"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Topic :: Security",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Typing :: Typed",
 ]
 
-[project.optional-dependencies]
-dev = ["pytest>=7.0", "pytest-cov>=4.0"]
-
 [project.urls]
-Homepage = "https://github.com/naveenkumarbaskaran/AgentGuard"
-Documentation = "https://github.com/naveenkumarbaskaran/AgentGuard/blob/main/docs/architecture.md"
+Homepage   = "https://github.com/naveenkumarbaskaran/AgentGuard"
 Repository = "https://github.com/naveenkumarbaskaran/AgentGuard"
-Issues = "https://github.com/naveenkumarbaskaran/AgentGuard/issues"
+Issues     = "https://github.com/naveenkumarbaskaran/AgentGuard/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "pytest-cov>=5.0",
+    "ruff>=0.5",
+    "mypy>=1.10",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["agentguard"]
+artifacts = ["agentguard/py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+src = ["agentguard"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = ["E501", "E741"]
+
+[tool.mypy]
+python_version        = "3.11"
+ignore_missing_imports = true
+check_untyped_defs    = true
+warn_unused_ignores   = false

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Any
 
 
@@ -57,7 +57,7 @@ class Rules:
                 if re.search(pattern, text, re.IGNORECASE):
                     return RuleResult(
                         passed=False,
-                        reason=f"Detected instruction override attempt",
+                        reason="Detected instruction override attempt",
                     )
             return RuleResult(passed=True)
 

@@ -5,8 +5,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
-from agentguard.rules import Rule
 from agentguard.results import InputResult, OutputResult, ToolResult
+from agentguard.rules import Rule
 
 
 @dataclass
